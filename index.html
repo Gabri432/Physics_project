@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="A simple example of inclined surface with javascript">
+    <meta name="keywords" content="physics, project, javascript, inclined, surface">
+    <meta name="author" content="Gabriele Gatti">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple inclined surface physics project</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <canvas id="myCanvas"></canvas>
+
+    <br />
+
+    <div id="optionBar">
+        <label>(Static) Friction</label>
+        <br />
+        <input type="number" value="0" min="0" max="0.9" name="friction" id="setFriction"/>
+        <br />
+        <br />
+        <label>Angle (deg)</label>
+        <br />
+        <input type="number" value="45" min="0" max="90" name="angle" id="setAngle"/>
+        <br />
+    </div>
+
+    <script src="angle.js" type="text/javascript"></script>
+</body>
+</html>
