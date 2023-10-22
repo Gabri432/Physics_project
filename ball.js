@@ -32,6 +32,10 @@ function updateCirclePosition(timestamp) {
   const dx = Math.cos(angle) * distance;
   const dy = Math.sin(angle) * distance;
 
+  if (Math.tan(angle) <= getFriction()) { // The ball will move once the angle is enough steep to overcome the friction
+    return
+  }
+
   // circle speed is given from the angle and the acceleration
   circle.speed += circle.acceleration * elapsed + defaultInitialSpeed * (angle * (180 / Math.PI) / defaultAngleDeg);
 
@@ -59,9 +63,14 @@ function updateCirclePosition(timestamp) {
   }
 }
 
+//Update the friction given by the user
+function getFriction() {
+    return document.querySelector("input[name='friction']").value;
+}
+
 function animate(timestamp) {
-  updateCirclePosition(timestamp);
-  getData();
-  drawBall();
-  setTimeout(() => requestAnimationFrame(animate), 1000 / 60);
+    updateCirclePosition(timestamp);
+    getData();
+    drawBall();
+    setTimeout(() => requestAnimationFrame(animate), 1000 / 60);
 }
