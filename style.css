@@ -2,6 +2,10 @@ html, body {
     margin: 0;
     width: 100%;
 }
+#home-title{
+    text-align: center;
+    font-size: 32px;
+}
 #myCanvas {
     width: 98%;
     margin-left: 1%;
@@ -17,4 +21,17 @@ html, body {
 
 input {
     font-size: 21px;
+}
+#description {
+    font-size: 21px;
+    width: 90%;
+    margin-left: 5%;
+}
+
+@media only screen and (max-width: 899px){
+    #myCanvas {
+        width: 90%;
+        margin-left: 5%;
+        height: 300px;
+    }
 }

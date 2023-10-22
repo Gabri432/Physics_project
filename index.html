@@ -12,6 +12,11 @@
     <!--<script src="ball.js" type="text/javascript"></script> -->
 </head>
 <body>
+
+    <header>
+        <h3 id="home-title">Simple inclined surface example with JavaScript Canvas</h3>
+    </header>
+
     <canvas id="myCanvas"></canvas>
 
     <br />
@@ -26,6 +31,19 @@
         <br />
         <input type="number" value="45" min="0" max="90" name="angle" id="setAngle"/>
         <br />
+    </div>
+
+    <div id="description">
+        <p>This project serves the porpuse to show the relationship between the slope, the friction and speed of an object 
+           moving along an inclined surface. 
+           <br /><br />
+           By steeping the value of the <strong>angle</strong> you will notice that the ball will increase its speed.<br /> 
+           Conversely it will slow down the lower the value gets.
+           <br /><br />
+           By increasing the value of the <strong>friction</strong> the ball will stop if the angle isn't steep enough to overcome 
+           the static friction.<br /><br />
+           This is due to the following formula: <em>tg(angle) = static friction coefficient</em>.
+        </p>
     </div>
 
     <script src="angle.js" type="text/javascript"></script>
