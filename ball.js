@@ -31,8 +31,6 @@ function updateCirclePosition(timestamp) {
   const dy = Math.sin(angle) * distance;
 
   circle.speed = defaultSpeed * (angle * (180 / Math.PI) / defaultAngleDeg);
-  console.log(targetY > circle.y, targetX > circle.x);
-  //previousAngleDeg = angle;
 
   if (Math.abs(circle.x - targetX) < Math.abs(dx)) {
     circle.x = targetX;
