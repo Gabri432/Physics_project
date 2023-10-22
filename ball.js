@@ -1,12 +1,15 @@
+const defaultSpeed = 50 //50 pixels per milliseconds
+
 // Circle properties
 const circle = {
   x: 60,  // Initial X coordinate (point A)
   y: 35,  // Initial Y coordinate (point A)
   radius: 5,
-  speed: 0.05,  // Pixels per millisecond (adjust to control the speed)
+  speed: defaultSpeed,  // Pixels per millisecond (adjust to control the speed)
 };
 
 let lastTimestamp = 0;
+let defaultAngleDeg = 45;
 
 function drawBall() {
   context.beginPath();
@@ -19,13 +22,17 @@ function drawBall() {
 function updateCirclePosition(timestamp) {
   if (!lastTimestamp) lastTimestamp = timestamp;
 
-  const elapsed = timestamp - lastTimestamp;
+  const elapsed = (timestamp - lastTimestamp) / 1000;
   lastTimestamp = timestamp;
 
   const distance = circle.speed * elapsed;
-  const angle = Math.atan2(targetY - circle.y, targetX - circle.x);
+  const angle = Math.atan2(Math.abs(targetY  - circle.y), targetX  - circle.x);
   const dx = Math.cos(angle) * distance;
   const dy = Math.sin(angle) * distance;
+
+  circle.speed = defaultSpeed * (angle * (180 / Math.PI) / defaultAngleDeg);
+  console.log(targetY > circle.y, targetX > circle.x);
+  //previousAngleDeg = angle;
 
   if (Math.abs(circle.x - targetX) < Math.abs(dx)) {
     circle.x = targetX;
@@ -39,13 +46,18 @@ function updateCirclePosition(timestamp) {
     circle.x = 60; // Reset to the initial X coordinate
     circle.y = 35; // Reset to the initial Y coordinate
   }
+
+  if (targetY < circle.y) {
+    circle.x = 60; // Reset to the initial X coordinate
+    circle.y = 35; // Reset to the initial Y coordinate
+  }
 }
 
 function animate(timestamp) {
   updateCirclePosition(timestamp);
   getData();
   drawBall();
-  requestAnimationFrame(animate);
+  setTimeout(() => requestAnimationFrame(animate), 1000 / 60);
 }
 
 //animate(0);
