@@ -16,15 +16,21 @@ context.strokeStyle = "black";
 // Set line width
 context.lineWidth = 2;
 
-function drawRectangle(angleInDeg) {
-    
+let targetX = 100;  // X coordinate of point B
+let targetY = 125;  // Y coordinate of point B
+
+// Drawing the Triangle
+function drawTriangle(angleInDeg) {
+
     // Convert to radiants
     let angleInRad = (angleInDeg * Math.PI) / 180;
 
     // Define end points
     let endX = beginX + radius * Math.cos(angleInRad);
     let endY = beginY + radius * Math.sin(angleInRad);
-    console.log(angleInDeg, endX, endY)
+
+    targetX = endX;
+    targetY = endY - 5;
 
     // Draw the hypotenuse
     context.beginPath();
@@ -45,14 +51,15 @@ function drawRectangle(angleInDeg) {
     context.stroke();
 
     context.closePath();
+
 }
 
-drawRectangle(45);
 
-document.getElementById("setAngle").addEventListener("change", getData);
-
+//Update the angle with the user-defined one.
 function getData() {
-        const angle = document.querySelector("input[name='angle']").value;
-        context.clearRect(0, 0, canvas.width, canvas.height);
-        drawRectangle(angle);
+    const angle = document.querySelector("input[name='angle']").value;
+    context.clearRect(0, 0, canvas.width, canvas.height);
+    drawTriangle(angle);
 }
+
+
