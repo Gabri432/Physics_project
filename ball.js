@@ -40,7 +40,6 @@ function updateCirclePosition(timestamp) {
   circle.speed += circle.acceleration * elapsed + defaultInitialSpeed * (angle * (180 / Math.PI) / defaultAngleDeg);
 
   circle.speed = Math.min(circle.speed, defaultMaxSpeed);
-  console.log(circle.speed);
 
   if (Math.abs(circle.x - targetX) < Math.abs(dx)) {
     circle.x = targetX;
