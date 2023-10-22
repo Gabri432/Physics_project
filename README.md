@@ -13,6 +13,7 @@ A simple physics project showing an inclined surface and a ball upon it.
 - main.js
 - angle.js
 - ball.js
+- license (MIT)
 
 ### How to use it
 Two input bars will allow to play with the project:
