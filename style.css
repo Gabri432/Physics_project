@@ -12,4 +12,9 @@ html, body {
     margin-top: 30px;
     margin-left: 10%;
     width: 80%;
+    font-size: 21px;
+}
+
+input {
+    font-size: 21px;
 }
